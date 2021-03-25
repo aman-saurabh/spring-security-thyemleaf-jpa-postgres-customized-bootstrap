@@ -1,0 +1,26 @@
+footer{
+    margin-top:60px;
+}
+
+.abc {
+    color: #fcb103;
+}
+
+.xyz {
+    color: #a9fc03
+}
+
+.js-test-file {
+    background-color: #f21885;
+    text-align: center;
+}
+
+.link-disabled {
+    color: #2237f5;
+    text-decoration: none;
+    pointer-events: none;
+}
+
+.link-disabled-wrapper {
+    cursor: not-allowed;
+}

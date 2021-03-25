@@ -1,0 +1,13 @@
+{
+  "name": "customise-bootstrap-for-spring-boot",
+  "scripts": {
+    "scss": "node-sass src/main/resources/static/scss -o target/classes/static/css"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "copyfiles": "^2.1.0",
+    "jquery": "^3.4.1",
+    "node-sass": "4.14.0",
+    "popper.js": "^1.15.0"
+  }
+}

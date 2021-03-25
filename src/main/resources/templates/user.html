@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <div th:replace="fragments/layouts/header :: head(pageTitle='User')"></div>
+  </head>
+  <body>
+    <div th:replace="fragments/layouts/header :: header" />
+
+    <div class="container">
+      <div class="starter-template">
+        <h1 class="xyz">User page - (Spring Security protected for User)</h1>
+
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+          <input type="submit" class="btn btn-danger" value="Sign Out" />
+        </form>
+      </div>
+    </div>
+    <!-- /.container -->
+    <div th:replace="fragments/layouts/footer :: footer" />
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head> </head>
+  <body>
+    <div th:fragment="footer">
+      <div class="container">
+        <footer>
+          <!-- this is footer -->
+          &copy; 2021 TechPassel.com
+          <span sec:authorize="isAuthenticated()">
+            | Logged user: <span sec:authentication="name"></span>
+            | Roles: <span sec:authentication="authorities"></span>
+            <!--In CustomAuthenticationProvider we have set Authorities and not Roles>hence in above line we used "authorities" only.
+                For we had set Roles,then in such scenario we had to use "principal.authorities" in place of "authorities".
+                How can we fetch user's name and role in controller.If you want to see that check DefaultController - Get method ('user').-->
+            <div sec:authorize="hasAuthority('USER')">Text visible to user.</div>
+            <div sec:authorize="hasAuthority('ADMIN')">Text visible to admin.</div>
+          </span>
+        </footer>
+
+        <div><b>Current URL :- <span>"<span class="text-success" th:text="${#httpServletRequest.requestURI}"></span>"</span></b></div>
+          <!-- Our Custom JS -->
+          <script src="/js/main.js"></script>
+          <!--JS files for Bootstrap - jQuery first, then Popper.js, then Bootstrap JS -->
+          <script src="/js/jquery/jquery.slim.min.js" ></script>
+          <script src="/js/popperjs/popper.min.js" ></script>
+          <script src="/js/bootstrap/bootstrap.min.js	" ></script>
+        </div>
+    </div>
+  </body>
+</html>

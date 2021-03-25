@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <div th:fragment="head(pageTitle)" th:remove="tag">
+      <!-- Some recommended meta tags -->
+      <meta charset="UTF-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <!-- Page title -->
+      <title th:text="${'Sstjpcb - '+pageTitle}">Sstjpcb</title>
+      <!-- Scrollbar Custom CSS -->
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css"
+      />
+      <!-- Our Custom CSS -->
+      <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+      <!--Customize Bootstrap 4 with new built-in Sass variables-->
+      <!--To check more details refer to following links -->
+      <!--"https://robintegg.com/2019/07/28/theming-bootstrap-in-your-spring-boot-application.html#:~:text=Here%20we%20configure%20the%20plugin,scss%20(sass%20compiler)%20command.&text=The%20npm%20commands%20will%20read,want%20to%20compile%20using%20scss."-->
+      <!--"https://github.com/teggr/customise-bootstrap-for-spring-boot"-->
+      <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}" />
+      <!--Its always better to add external JS files at the end of the body tag, as it improves the performance.Hence we have added them in the end of footer file.-->
+    </div>
+  </head>
+  <body>
+    <div th:fragment="header">
+      <nav class="navbar navbar-dark bg-primary justify-content-between">
+        <a class="navbar-brand mb-0 h1" th:href="@{/}"><b>Navbar</b></a>
+        <span sec:authorize="isAuthenticated()">
+          <a th:href="@{/logout}"
+            ><button
+              class="btn btn-success btn-outline-white my-2 my-sm-0"
+              type="submit"
+            >
+              <b>Logout</b>
+            </button></a
+          >
+        </span>
+      </nav>
+      <!--Used in custom JS page(main.js) - Just to check whether that is working or not-->
+      <div class="js-test-file"></div>
+    </div>
+  </body>
+</html>

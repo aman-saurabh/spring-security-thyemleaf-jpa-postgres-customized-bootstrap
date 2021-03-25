@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans&display=swap");
+//If you make any changes in this file(or in any .scss file).For that to take effect you must have to run "mvn clean install" command and then you should have to re-run the program using "mvn spring-boot:run" command or through your IDE.
+
+$gray-100: #eceff4;
+$gray-200: #e5e9f0;
+$gray-300: #e5e9f0;
+
+$white: #fff;
+$blue: #88c0d0;
+$indigo: #81a1c1;
+$purple: #5e81ac;
+$pink: #bf616a;
+$red: #bf616a;
+$orange: #d08770;
+$yellow: #ebcb8b;
+$green: #a3be8c;
+$teal: #88c0d0;
+$cyan: #88c0d0;
+
+$theme-colors: (
+  "primary": #2237f5,
+  //modifying bootstrap color
+  "danger": #ff0000,
+  "success": #29db12,
+  "myfav": #f56822 //adding new color for bootstrap,,,
+);
+$font-family-sans-serif: "PT Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+  "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+@import "../../../../../node_modules/bootstrap/scss/bootstrap";

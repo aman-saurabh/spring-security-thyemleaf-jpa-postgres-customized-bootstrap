@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+    <div th:replace="fragments/layouts/header :: head(pageTitle='Home')"></div>
+</head>
+<body>
+<div th:replace="fragments/layouts/header :: header"/>
+
+<div class="container">
+    <div class="starter-template">
+        <div th:if="${param.signup}">
+            <div class="alert alert-info">User created successfully.</div>
+        </div>
+        <h1 class="text-myfav">Spring Boot Application with Spring Security, Thymeleaf, JPA, Postgres and Customized Bootstrap(SASS Integration using NodeJs).</h1>
+        <h2 th:with="isLoggedIn=${#authorization.expression('isAuthenticated()')}">
+            1. Visit <span th:class="${isLoggedIn?'link-disabled-wrapper':''}" th:title="${isLoggedIn?'You should logout first to signup.':''}">
+            <a th:class="${isLoggedIn? 'link-disabled':''}"  th:href="@{/signup}">Signup page</a></span>
+        </h2>
+        <h2>
+            2. Visit
+            <a th:href="@{/admin}">Admin page (Spring Security protected, Need Admin Role)</a>
+        </h2>
+        <h2>
+            3. Visit
+            <a th:href="@{/user}">User page (Spring Security protected, Need User Role)</a>
+        </h2>
+        <h2>4. Visit <a th:href="@{/about}">Normal page</a></h2>
+    </div>
+</div>
+
+<div th:replace="fragments/layouts/footer :: footer"/>
+</body>
+</html>
